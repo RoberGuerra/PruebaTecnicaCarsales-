@@ -1,0 +1,33 @@
+.character-detail {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.character-detail img {
+  border-radius: 50%;
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+}
+
+.character-detail ul {
+  list-style: none;
+  padding: 0;
+  max-width: 400px;
+  width: 100%;
+}
+
+.character-detail li {
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #7CC24E;
+}
+
+.back-link{
+    display: flex;
+    justify-content: center;
+}
+.back-arrow{
+    width: 50px;
+}

@@ -1,0 +1,12 @@
+/* You can add global styles to this file, and also import other style files */
+body {
+  background-color: #cfcfcf;
+  font-family:
+    -apple-system, /* Safari, iOS */
+    BlinkMacSystemFont, /* Chrome */
+    "Segoe UI", /* Windows */
+    Roboto, /* Android */
+    "Helvetica Neue", /* muchos Linux */
+    Arial,
+    sans-serif;
+}

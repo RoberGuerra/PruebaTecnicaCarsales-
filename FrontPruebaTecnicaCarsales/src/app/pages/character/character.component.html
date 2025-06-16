@@ -1,0 +1,19 @@
+<div *ngIf="loading">Cargando personaje…</div>
+<div *ngIf="error">{{ error }}</div>
+
+<article *ngIf="selectedCh" class="character-detail">
+    <h2>{{ selectedCh.name }}</h2>
+    <img [src]="selectedCh.image" alt="{{ selectedCh.name }}" />
+    <ul>
+        <li><strong>Status:</strong> {{ selectedCh.status }}</li>
+        <li><strong>Species:</strong> {{ selectedCh.species }}</li>
+        <li *ngIf="selectedCh.type"><strong>Type:</strong> {{ selectedCh.type }}</li>
+        <li><strong>Gender:</strong> {{ selectedCh.gender }}</li>
+        <li><strong>Location:</strong> {{ selectedCh.location.name }}</li>
+        <li><strong>Origin:</strong> {{ selectedCh.origin.name }}</li>
+        <li><strong>Episodes in which it appears:</strong> {{ selectedCh.episode.length }}</li>
+    </ul>
+</article>
+<a [routerLink]="['/episodes']" class="back-link" title="Basck to apisodes">
+    <img src="/assets/images/backArrow.png" class="back-arrow" alt="Back" />
+</a>

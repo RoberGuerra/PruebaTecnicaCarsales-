@@ -1,0 +1,32 @@
+<div class="pagination">
+    <button (click)="prev()" [disabled]="!info.prev">Previous</button>
+    <span>Page {{ currentPage }} of {{ info.pages }}</span>
+    <button (click)="next()" [disabled]="!info.next">Next</button>
+</div>
+<div *ngIf="loading">Cargando...</div>
+<div *ngIf="error">{{ error }}</div>
+
+<ul class="episode-list">
+    <li *ngFor="let ep of episodes" class="episode-item">
+        <div class="episode-summary" (click)="toggle(ep)">
+            <div><strong>Episode name:</strong> {{ ep.name }}</div>
+            <span class="badge"> {{seasonAndEpisodie(ep.episode)}} </span>
+            <button class="toggle-btn">
+                {{ expanded.has(ep.id) ? '▲ Hide characters' : '▼ Show characters' }}
+            </button>
+        </div>
+
+
+        <div *ngIf="expanded.has(ep.id)" class="characters-list">
+            <div *ngIf="!charsByEpisode[ep.id]">Load characters…</div>
+            <div *ngIf="charsByEpisode[ep.id]?.length === 0">There are no characters</div>
+            <div *ngFor="let ch of charsByEpisode[ep.id]" class="character-card">
+                <a [routerLink]="['/character', ch.id]" class="character-link" title="View details {{ ch.name }}">
+                    <img [src]="ch.image" alt="{{ ch.name }}" class="character-img" />
+                    <div class="character-name">{{ ch.name }}</div>
+                </a>
+            </div>
+        </div>
+    </li>
+
+</ul>
